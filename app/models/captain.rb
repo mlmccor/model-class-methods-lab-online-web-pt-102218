@@ -38,7 +38,7 @@ class Captain < ActiveRecord::Base
 
   def self.talented_seafarers
     Captain.all.select do |captain|
-      sailors.include(captain) && motorboat_captains.include?(captain)
+      sailors.include?(captain) && motorboat_captains.include?(captain)
     end
   end
 
