@@ -26,6 +26,8 @@ class Captain < ActiveRecord::Base
   end
 
   def self.talented_seafarers
+    Boat.all.each do |boat|
+      if boat.classifications.include?
     binding.pry
   end
 
