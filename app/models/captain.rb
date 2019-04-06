@@ -26,7 +26,7 @@ class Captain < ActiveRecord::Base
   end
 
   def self.talented_seafarers
-    
+    binding.pry
   end
 
 end
