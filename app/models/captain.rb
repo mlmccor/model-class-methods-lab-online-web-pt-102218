@@ -25,10 +25,10 @@ class Captain < ActiveRecord::Base
     captains
   end
   
-  def self.sailors
+  def self.motorboat_captains
     captains = []
-    sailboat = Classification.find_by(name: 'Sailboat')
-    sailboat.boats.each do |boat|
+    motorboat = Classification.find_by(name: 'Motorboat')
+    motorboat.boats.each do |boat|
       if !captains.include?(boat.captain) && boat.captain
         captains << boat.captain
       end
@@ -37,9 +37,9 @@ class Captain < ActiveRecord::Base
   end
 
   def self.talented_seafarers
-    Boat.all.each do |boat|
-      if boat.classifications.include?
-    binding.pry
+    Captain.all.select do |captain|
+      sailors.include(captain) && motorboat_captains.include?(captain)
+    end
   end
 
 end
