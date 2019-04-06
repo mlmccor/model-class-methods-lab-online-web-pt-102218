@@ -41,5 +41,9 @@ class Captain < ActiveRecord::Base
       sailors.include?(captain) && motorboat_captains.include?(captain)
     end
   end
+  
+  def self.non_sailors
+    Captain.all.select {|captain| !sailors.include?(captain)}
+  end
 
 end
