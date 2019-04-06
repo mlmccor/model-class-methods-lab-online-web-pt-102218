@@ -6,5 +6,8 @@ class Classification < ActiveRecord::Base
     Classification.all
   end
   
+  def self.longest
+    Boat.all.sort_by(:length)[0].classifications
+  end
   
 end
